@@ -1,189 +1,166 @@
 import React, { useRef, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ilus from '../../../assets/cam-solita.jpg';
-import ilus2 from '../../../assets/luz.jpg';
-import ilus4 from '../../../assets/pulserita.jpg';
-import ilus3 from '../../../assets/artefacts.jpg';
+import './Servicios_Productos.css';
 
-// Registrar ScrollTrigger de GSAP
+
+import ilusSecurity from '../../../assets/cam-solita.jpg';
+import ilusHome from '../../../assets/luz.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
-  const sectionRef = useRef();
-  const cardsRef = useRef([]);
+  const sectionRef = useRef(null);
+  const blocksRef = useRef([]);
 
-  // Datos de los servicios/productos
   const servicesData = [
     {
       id: 1,
-      image: ilus, // Reemplaza con tus imágenes
-      title: "Sistema de Seguridad Inteligente",
-      description: "Protege tu hogar con nuestra tecnología de vanguardia. Monitoreo 24/7, alertas instantáneas y control remoto desde tu smartphone.",
-      features: ["Monitoreo 24/7", "Control remoto", "Alertas instantáneas"]
+      image: ilusSecurity,
+      title: "Seguridad Inteligente Completa",
+      description:
+        "Protegé tu hogar con tecnología profesional. Cámaras HD, sensores de movimiento, control de accesos y alertas instantáneas directamente a tu celular.",
+      features: [
+        "Cámaras HD con visión nocturna",
+        "Sensores de movimiento",
+        "Control de puertas y portones",
+        "Alertas al celular",
+        "Instalación profesional + garantía real"
+      ]
     },
     {
       id: 2,
-      image: ilus2,
+      image: ilusHome,
       title: "Automatización del Hogar",
-      description: "Convierte tu casa en un espacio inteligente. Controla iluminación, temperatura y electrodomésticos con un solo click.",
-      features: ["Control de iluminación", "Gestión de temperatura", "Automación de electrodomésticos"]
-    },
-    {
-      id: 3,
-      image: ilus3,
-      title: "Cámaras de Vigilancia",
-      description: "Vigila tu propiedad desde cualquier lugar. Video en alta definición, visión nocturna y sensores de movimiento.",
-      features: ["Alta definición", "Iluminacion", "Sensores de movimiento"]
-    },
-    {
-      id: 4,
-      image: ilus4,
-      title: "Control de Acceso",
-      description: "Gestiona quién entra y sale de tu propiedad. Cerraduras inteligentes, abrepuertas automáticos y más.",
-      features: ["Cerraduras inteligentes", "Control de acceso", "Cerraduras inteligentes para garajes"]
+      description:
+        "Modernizá tu casa y controlá todo desde tu celular. Luces inteligentes, enchufes, rutinas automáticas y gestión de energía.",
+      features: [
+        "Control de iluminación",
+        "Enchufes inteligentes",
+        "Rutinas automáticas",
+        "Control por voz (Alexa / Google)",
+        "Ahorro de energía"
+      ]
     }
   ];
 
-    //funcion cta
-    const handleCTAClick = () => {
-    console.log("CTA clicked!");
-    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart', '_blank')
-    // Tu acción para el botón CTA
+  const handleCTAClick = () => {
+    window.open(
+      "https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20los%20servicios%20SmartHome",
+      "_blank"
+    );
   };
 
-  // Animaciones con GSAP
   useEffect(() => {
-    cardsRef.current.forEach((card, index) => {
-      if (!card) return;
+    blocksRef.current.forEach((block) => {
+      if (!block) return;
 
-      const image = card.querySelector('.service-image');
-      const content = card.querySelector('.service-content');
+      const image = block.querySelector(".service-image");
+      const content = block.querySelector(".service-content");
 
-      gsap.fromTo(image,
-        {
-          x: index % 2 === 0 ? -100 : 100,
-          opacity: 0,
-          scale: 0.8
-        },
+      gsap.set(image, { opacity: 0 });
+      gsap.fromTo(
+        image,
+        { x: -80, opacity: 0 },
         {
           x: 0,
           opacity: 1,
-          scale: 1,
-          duration: 1,
+          duration: 1.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: card,
+            trigger: block,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      gsap.fromTo(content,
-        {
-          x: index % 2 === 0 ? 100 : -100,
-          opacity: 0,
-          y: 50
-        },
+      gsap.fromTo(
+        content,
+        { x: 80, opacity: 0 },
         {
           x: 0,
           opacity: 1,
-          y: 0,
           duration: 1,
           delay: 0.2,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: card,
+            trigger: block,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
       );
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
   }, []);
 
   const addToRefs = (el) => {
-    if (el && !cardsRef.current.includes(el)) {
-      cardsRef.current.push(el);
+    if (el && !blocksRef.current.includes(el)) {
+      blocksRef.current.push(el);
     }
   };
 
   return (
     <section ref={sectionRef} className="services-section py-5">
       <Container>
-        {/* Título de la sección */}
         <Row className="mb-5">
           <Col lg={8} className="mx-auto text-center">
             <h2 className="display-4 fw-bold text-light mb-3">
-              Nuestros Servicios
+              Soluciones Inteligentes para tu Hogar
             </h2>
             <p className="lead text-light">
-              Descubre nuestra gama de soluciones inteligentes para tu hogar
+              Protegé, modernizá y controlá tu casa con tecnología profesional.
             </p>
           </Col>
         </Row>
 
-        {/* Cards de servicios */}
-        {servicesData.map((service, index) => (
-          <Row 
+        {servicesData.map((service) => (
+          <div
             key={service.id}
             ref={addToRefs}
-            className={`service-card align-items-center mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+            className="service-block mb-5 p-4 rounded"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              borderRadius: "15px",
+              backdropFilter: "blur(5px)"
+            }}
           >
-            {/* Columna de la imagen */}
-            <Col lg={6} className="mb-4 mb-lg-0">
-              <Card className="service-image-card border-0 shadow-lg h-100">
-                <Card.Img 
-                  variant="top"
-                  src={service.image}
-                  alt={service.title}
-                  className="service-image"
-                  style={{ 
-                    height: '400px', 
-                    objectFit: 'cover',
-                    borderRadius: '15px'
-                  }}
-                />
-              </Card>
-            </Col>
+            <Row className="align-items-center">
 
-            {/* Columna del contenido */}
-            <Col lg={6}>
-              <div className="service-content h-100 d-flex flex-column justify-content-center">
-                <h3 className="service-title fw-bold mb-4">
-                  {service.title}
-                </h3>
-                <p className="service-description lead mb-4">
-                  {service.description}
-                </p>
-                
-                {/* Lista de características */}
-                <ul className="service-features list-unstyled">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="mb-2">
-                      <i className="fas fa-check-circle text-primary me-2"></i>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              {/* Imagen */}
+              <Col lg={6} className="mb-4 mb-lg-0">
+                <div className="image-wrapper shadow-lg rounded overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="service-image"
+                  />
+                </div>
+              </Col>
 
-                {/* Botón de acción */}
-                <div className="service-actions mt-4">
-                  <button className="btn btn-primary btn-lg" onClick={handleCTAClick}>
+              {/* Contenido */}
+              <Col lg={6}>
+                <div className="service-content text-light p-2">
+                  <h3 className="fw-bold mb-3 service-title">{service.title}</h3>
+                  <p className="mb-4 lead">{service.description}</p>
+                  <ul className="list-unstyled mb-4">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="mb-2">
+                        <i className="fas fa-check-circle text-primary me-2"></i>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button className="btn service-btn" onClick={handleCTAClick}>
                     Más Información
                   </button>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+
+            </Row>
+          </div>
         ))}
       </Container>
     </section>
