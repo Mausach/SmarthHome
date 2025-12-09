@@ -105,8 +105,8 @@ const ServicesSection = () => {
     <section ref={sectionRef} className="services-section py-5">
       <Container>
         <Row className="mb-5">
-          <Col lg={10} className="mx-auto text-center">
-            <h2 className="display-4 fw-bold text-light mb-3">
+          <Col lg={11} className="mx-auto text-center">
+            <h2 className="display-4 mb-3">
               Soluciones Inteligentes para tu Hogar
             </h2>
             <p className="text-center section-subtitle mb-5">

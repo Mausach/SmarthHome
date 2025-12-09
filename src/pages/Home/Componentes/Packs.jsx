@@ -99,7 +99,7 @@ const Packs = () => {
     return (
         <section className="packs-section py-5">
             <Container>
-                <h2 className="display-4 fw-bold text-light mb-3 text-center">Nuestros Packs</h2>
+                <h2 className="display-4 mb-3 text-center">Nuestros Packs</h2>
                 <p className="text-center section-subtitle mb-5">
                     Soluciones pensadas para cada necesidad del hogar
                 </p>

@@ -8,6 +8,7 @@ import AboutSection from './Componentes/Nosotros'
 import FAQSection from './Componentes/Preguntas_Faq'
 import { Footer } from './Componentes/Foother'
 import Packs from './Componentes/Packs'
+import Beneficios from './Componentes/Beneficios'
 
 export const Home = () => {
   return (
@@ -23,6 +24,10 @@ export const Home = () => {
 
       <div id="packs">
         <Packs />
+      </div>
+
+      <div id="beneficios">
+        <Beneficios />
       </div>
 
       <div id="procesos">
