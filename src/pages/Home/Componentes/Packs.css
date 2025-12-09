@@ -1,0 +1,87 @@
+/* SECCION */
+.packs-section {
+  background: transparent;
+}
+
+/* TITULOS */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ededed;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #bbbbbb;
+}
+
+/* CARD PACK */
+.pack-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+display: flex;
+  flex-direction: column;
+}
+
+.pack-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.pack-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* IMAG */
+.card-img-wrapper {
+  overflow: hidden;
+}
+
+.pack-card-img {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.card-img-wrapper:hover .pack-card-img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* TEXTOS */
+.pack-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: .7rem;
+}
+
+.pack-card-description {
+  color: #cfcfcf;
+  min-height: 60px;
+}
+
+.pack-card-features p {
+  color: #d0d0d0;
+  margin-bottom: 18px;
+}
+
+
+/* BOTÓN */
+.pack-card-btn {
+  margin-top: 10px;
+  padding: 10px 25px;
+  border-radius: 40px;
+  background: linear-gradient(45deg, #df1024, #0056b3);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pack-card-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(231, 230, 230, 0.4);
+}

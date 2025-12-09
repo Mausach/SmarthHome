@@ -7,11 +7,12 @@ import ProjectsSection from './Componentes/Proyectos'
 import AboutSection from './Componentes/Nosotros'
 import FAQSection from './Componentes/Preguntas_Faq'
 import { Footer } from './Componentes/Foother'
+import Packs from './Componentes/Packs'
 
 export const Home = () => {
   return (
     <div>
-    
+
       <div id="inicio">
         <HeroSection />
       </div>
@@ -19,25 +20,29 @@ export const Home = () => {
       <div id="serv">
         <ServicesSection />
       </div>
-      
+
+      <div id="packs">
+        <Packs />
+      </div>
+
       <div id="procesos">
-        <ProcessSection/>
+        <ProcessSection />
       </div>
 
       <div id="proyectos">
-        <ProjectsSection/>
+        <ProjectsSection />
       </div>
 
       <div id="nosotros">
-        <AboutSection/>
+        <AboutSection />
       </div>
 
       <div id="faq">
-        <FAQSection/>
+        <FAQSection />
       </div>
 
       <div id="footer">
-        <Footer/>
+        <Footer />
       </div>
       Smart Home
     </div>
