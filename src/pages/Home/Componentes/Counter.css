@@ -1,0 +1,99 @@
+/* Sección general */
+.counter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tarjetas (una al lado de la otra en desktop gracias al grid de Bootstrap) */
+.counter-item {
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: #0c0c0c;
+  box-shadow: 0 5px 15px rgba(241, 239, 239, 0.08);
+  border: 1px solid rgba(228, 43, 18, 0.685);
+}
+
+.counter-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Icono circular */
+.counter-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #33030d, #df1024);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.counter-icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+/* Números */
+.counter-number {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.counter-number-value {
+  display: inline-block;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Efecto flotante suave opcional */
+@keyframes float-counter {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.counter-item {
+  animation: float-counter 6s ease-in-out infinite;
+}
+
+.counter-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.counter-item:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.counter-item:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.counter-item:nth-child(4) {
+  animation-delay: 4.5s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .counter-number {
+    font-size: 2rem;
+  }
+
+  .counter-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .counter-icon {
+    font-size: 1.2rem;
+  }
+}

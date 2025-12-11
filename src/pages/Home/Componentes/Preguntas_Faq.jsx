@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
+import { Container, Row, Col, Accordion } from 'react-bootstrap';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import "./Preguntas_Faq.css";
 
 // Registrar ScrollTrigger de GSAP
 gsap.registerPlugin(ScrollTrigger);
 
 const FAQSection = () => {
   const sectionRef = useRef();
-  const titleRef = useRef();
   const accordionRef = useRef();
   const [activeKey, setActiveKey] = useState('0');
 
@@ -23,71 +23,53 @@ const FAQSection = () => {
     {
       id: 2,
       question: "¿Necesito tener conocimientos técnicos para usar el sistema?",
-      answer: "No es necesario. Diseñamos nuestros sistemas para que sean intuitivos y fáciles de usar. Además, proporcionamos capacitación personalizada y soporte técnico continuo. La app móvil es muy user-friendly.",
+      answer: "No es necesario. Diseñamos nuestros sistemas para que sean intuitivos y fáciles de usar. Además, proporcionamos capacitación personalizada y soporte técnico continuo. La app móvil es muy sencilla y amigable.",
       icon: "bi-person"
     },
     {
       id: 3,
       question: "¿Qué pasa si hay un corte de internet?",
-      answer: "Nuestros sistemas tienen funcionalidades locales que continúan trabajando sin internet. Las cámaras graban localmente, las cerraduras funcionan con tarjetas/tokens físicos, y los sensores de seguridad mantienen su operación básica.",
+      answer: "Nuestros sistemas tienen funcionalidades locales que continúan trabajando sin internet. Las cámaras pueden grabar localmente, las cerraduras funcionan con tarjetas/tokens físicos y los sensores de seguridad mantienen su operación básica.",
       icon: "bi-wifi"
     },
     {
       id: 4,
       question: "¿Ofrecen garantía en sus instalaciones?",
-      answer: "Sí, ofrecemos garantía de 1 años en todas nuestras instalaciones y equipos. Además, proporcionamos soporte técnico gratuito durante el primer año y mantenimiento preventivo cada 6 meses.",
+      answer: "Sí, ofrecemos garantía de 1 año en todas nuestras instalaciones y equipos. Además, proporcionamos soporte técnico gratuito durante el primer año y mantenimiento preventivo cada 6 meses.",
       icon: "bi-shield-check"
     },
     {
       id: 5,
       question: "¿Puedo integrar dispositivos que ya tengo en mi hogar?",
-      answer: "En la mayoría de los casos, sí. Realizamos una evaluación previa de compatibilidad. Sopertamos integración con dispositivos de marcas como Google Nest, Amazon Alexa, Philips Hue, y muchos más.",
+      answer: "En la mayoría de los casos, sí. Realizamos una evaluación previa de compatibilidad. Integramos dispositivos de marcas como Google Nest, Amazon Alexa, Philips Hue y muchas otras.",
       icon: "bi-puzzle"
     },
     {
       id: 6,
       question: "¿Qué medidas de seguridad tienen para proteger mis datos?",
-      answer: "Implementamos encriptación end-to-end, autenticación de dos factores, y servidores seguros. Cumplimos con las normativas de protección de datos y nunca compartimos información con terceros.",
+      answer: "Trabajamos con protocolos de seguridad avanzados y dispositivos de marcas confiables. Implementamos encriptación end-to-end, autenticación de dos factores y servidores seguros. Cumplimos con las normativas de protección de datos y nunca compartimos información con terceros.",
       icon: "bi-lock"
     },
     {
       id: 7,
       question: "¿Puedo expandir el sistema en el futuro?",
-      answer: "Absolutamente. Nuestros sistemas son modulares y escalables. Puedes agregar más dispositivos, nuevas funcionalidades, o integrar tecnologías emergentes cuando lo desees.",
+      answer: "Absolutamente. Nuestros sistemas son modulares y escalables. Podés agregar más dispositivos, nuevas funcionalidades o integrar tecnologías emergentes cuando lo desees.",
       icon: "bi-arrow-right-circle"
     },
     {
       id: 8,
       question: "¿Qué incluye el servicio de soporte postventa?",
-      answer: "Incluye: asistencia telefónica 24/7, visitas técnicas programadas, actualizaciones de software, resolución remota de problemas, y reemplazo de equipos en garantía. También ofrecemos planes de mantenimiento premium.",
+      answer: "Incluye asistencia telefónica 24/7, visitas técnicas programadas, actualizaciones de software, resolución remota de problemas y reemplazo de equipos en garantía. También ofrecemos planes de mantenimiento premium.",
       icon: "bi-headset"
     }
   ];
 
   // Animaciones con GSAP
   useEffect(() => {
-    // Animación del título
-    gsap.fromTo(titleRef.current,
-      {
-        y: -50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
 
-    // Animación de los acordeones
-    gsap.fromTo(accordionRef.current,
+    // Animación de los acordeones (contenedor)
+    gsap.fromTo(
+      accordionRef.current,
       {
         y: 50,
         opacity: 0
@@ -107,11 +89,12 @@ const FAQSection = () => {
       }
     );
 
-    // Animación de items individuales cuando se abren
+    // Animación de items individuales cuando entran al viewport
     const accordionItems = accordionRef.current?.querySelectorAll('.accordion-item');
     if (accordionItems) {
       accordionItems.forEach((item, index) => {
-        gsap.fromTo(item,
+        gsap.fromTo(
+          item,
           {
             x: index % 2 === 0 ? -30 : 30,
             opacity: 0
@@ -138,25 +121,16 @@ const FAQSection = () => {
     };
   }, []);
 
-  const handleAccordionToggle = (key) => {
-    setActiveKey(key === activeKey ? null : key);
-    
-    // Animación suave al abrir/cerrar
-    const accordionItem = document.querySelector(`#accordion-${key}`);
-    if (accordionItem) {
-      gsap.to(accordionItem, {
-        scale: key === activeKey ? 1 : 1.02,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    }
-  };
+const handleAccordionToggle = (key) => {
+  setActiveKey(key === activeKey ? null : key);
+};
 
-  //funcion cta
-    const handleCTAClick = () => {
-    console.log("CTA clicked!");
-    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart', '_blank')
-    // Tu acción para el botón CTA
+  // función CTA
+  const handleCTAClick = () => {
+    window.open(
+      'https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20los%20servicios%20de%20SmartHome',
+      '_blank'
+    );
   };
 
   return (
@@ -165,11 +139,11 @@ const FAQSection = () => {
         {/* Título de la sección */}
         <Row className="mb-5">
           <Col lg={8} className="mx-auto text-center">
-            <h2 ref={titleRef} className="display-4 fw-bold text-light mb-3">
+            <h2 className="display-4 mb-3">
               Preguntas Frecuentes
             </h2>
-            <p className="lead text-light">
-              Encuentra respuestas a las dudas más comunes sobre nuestros servicios
+            <p className="text-center section-subtitle mb-3">
+              Encontrá respuestas a las dudas más comunes sobre nuestros servicios
             </p>
           </Col>
         </Row>
@@ -180,7 +154,7 @@ const FAQSection = () => {
             <div ref={accordionRef}>
               <Accordion activeKey={activeKey} onSelect={handleAccordionToggle}>
                 {faqData.map((faq, index) => (
-                  <Accordion.Item 
+                  <Accordion.Item
                     key={faq.id}
                     eventKey={index.toString()}
                     className="faq-item mb-3 border-0"
@@ -196,10 +170,8 @@ const FAQSection = () => {
                     </Accordion.Header>
                     <Accordion.Body className="faq-answer">
                       <div className="d-flex ">
-                        <i className="bi bi-arrow-return-right  text-danger me-3 mt-1"></i>
-                        <div>
-                          {faq.answer}
-                        </div>
+                        <i className="bi bi-arrow-return-right text-danger me-3 mt-1"></i>
+                        <div>{faq.answer}</div>
                       </div>
                     </Accordion.Body>
                   </Accordion.Item>

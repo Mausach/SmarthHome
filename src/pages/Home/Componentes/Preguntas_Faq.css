@@ -1,0 +1,219 @@
+.faq-section {
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Items del FAQ */
+.faq-item {
+  border-radius: 15px !important;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  background: #230507;
+}
+
+
+.faq-item:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Header del acordeón */
+.faq-header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border: none !important;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.faq-header:not(.collapsed) {
+  background: linear-gradient(45deg, var(--rojoOscuro), var(--rojoClaro));
+  color: #CBCBCB;
+}
+
+.faq-header:not(.collapsed) .faq-icon {
+  color: var(--blanco) !important;
+}
+
+.faq-header:not(.collapsed) .faq-question {
+  color: var(--blanco);
+}
+
+.faq-icon {
+  font-size: 1.2rem;
+  color: var(--rojoOscuro) !important;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  font-size: 1.1rem;
+  color: #ece8e8;
+  transition: all 0.3s ease;
+}
+
+/* Botón del acordeón */
+.accordion-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: transparent !important;
+  color: white !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transform: rotate(-180deg);
+}
+
+/* Body del acordeón */
+.faq-answer {
+  background: var(--blanco);
+  border-top: 1px solid rgba(0, 123, 255, 0.1);
+  padding: 2rem !important;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #121113;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA de contacto */
+.contact-cta {
+  background: var(--blanco);
+  border: 2px solid rgba(255, 38, 0, 0.185);
+  transition: all 0.3s ease;
+}
+
+.contact-cta:hover {
+  border-color: rgba(255, 17, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 8, 0, 0.185);
+}
+
+.contact-cta .btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--rojoClaroGradiente), var(--azulClaroGradiente));
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-cta .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
+/* Efectos de animación para items individuales */
+.faq-item:nth-child(odd) {
+  border-left: 4px solid #007bff;
+}
+
+.faq-item:nth-child(even) {
+  border-left: 4px solid #28a745;
+}
+
+/* Indicador visual de estado */
+.faq-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.faq-header:not(.collapsed)::before {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .faq-answer {
+    padding: 1.5rem !important;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .contact-cta .btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .faq-answer {
+    padding: 1.25rem !important;
+  }
+
+  .faq-icon {
+    font-size: 1rem;
+    margin-right: 0.75rem;
+  }
+}
+
+/* Efecto de brillo al hacer hover */
+.faq-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.faq-item:hover::after {
+  opacity: 1;
+  animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}

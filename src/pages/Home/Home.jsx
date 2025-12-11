@@ -10,6 +10,7 @@ import { Footer } from './Componentes/Foother'
 import Packs from './Componentes/Packs'
 import Beneficios from './Componentes/Beneficios'
 import PorqueElegirnos from './Componentes/PorqueElegirnos'
+import Counter from './Componentes/Counter'
 
 export const Home = () => {
   return (
@@ -35,16 +36,16 @@ export const Home = () => {
         <PorqueElegirnos />
       </div>
 
+      <div id="Counter">
+        <Counter />
+      </div>
+
       <div id="procesos">
         <ProcessSection />
       </div>
 
       <div id="proyectos">
         <ProjectsSection />
-      </div>
-
-      <div id="nosotros">
-        <AboutSection />
       </div>
 
       <div id="faq">
