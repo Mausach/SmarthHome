@@ -83,5 +83,5 @@ display: flex;
 
 .pack-card-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(231, 230, 230, 0.4);
+  box-shadow: 0 8px 25px var(--shadowGris);
 }

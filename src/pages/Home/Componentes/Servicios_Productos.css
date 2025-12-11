@@ -38,7 +38,7 @@
 
 .service-content {
   padding: 1.5rem;
-  color: #ededed;
+  color: var(--blanco);
 }
 .service-content h3 {
   font-size: 2rem;
@@ -47,7 +47,7 @@
   margin-bottom: 1rem;
 }
 .service-content p {
-  color: #cfcfcf;
+  color: var(--gris);
   line-height: 1.6;
 }
 
@@ -56,17 +56,17 @@
 
 .service-title {
   display: inline-block;
-  color: var(--rojoOscuro);
+  color: var(--rojoClaro);
   transition: all 0.5s ease !important;
   background: none;
 }
 
 .service-title:hover {
-  color: var(--rojoClaro);
+  color: var(--rojoOscuro);
 }
 
 .service-features {
-  color: #bdbdbd;
+  color: var(--gris);
 }
 
 .service-features li {

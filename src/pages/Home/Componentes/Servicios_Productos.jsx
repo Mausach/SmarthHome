@@ -147,7 +147,7 @@ const ServicesSection = () => {
                   <ul className="list-unstyled mb-4">
                     {service.features.map((feature, i) => (
                       <li key={i} className="mb-2">
-                        <i className="fas fa-check-circle text-primary me-2"></i>
+                        <i className="fas fa-check-circle me-2"></i>
                         {feature}
                       </li>
                     ))}

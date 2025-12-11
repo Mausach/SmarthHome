@@ -9,6 +9,7 @@ import FAQSection from './Componentes/Preguntas_Faq'
 import { Footer } from './Componentes/Foother'
 import Packs from './Componentes/Packs'
 import Beneficios from './Componentes/Beneficios'
+import PorqueElegirnos from './Componentes/PorqueElegirnos'
 
 export const Home = () => {
   return (
@@ -28,6 +29,10 @@ export const Home = () => {
 
       <div id="beneficios">
         <Beneficios />
+      </div>
+
+      <div id="porqueElegirnos">
+        <PorqueElegirnos />
       </div>
 
       <div id="procesos">
