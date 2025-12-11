@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Packs.css"
 
 import portonImg from '../../../assets/garaje.jpg';
-import seguridadImg from '../../../assets/cam-solita.webp';
+import seguridadImg from '../../../assets/artefacts.webp';
 import comodidadImg from '../../../assets/tablet.jpg';
 import smartImg from '../../../assets/pareja-luz.jpg';
 
