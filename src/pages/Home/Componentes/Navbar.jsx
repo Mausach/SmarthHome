@@ -3,10 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Logo from '../../../assets/Logo.jpg';
+import Logo from '../../../assets/SmartHome-logo-no-bck.png';
+import "./Navbar.css";
 
 function Navbarsh() {
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   // Efecto para cambiar el navbar al hacer scroll
   useEffect(() => {
@@ -22,21 +24,57 @@ function Navbarsh() {
     };
   }, []);
 
-  //funcion cta
-    const handleCTAClick = () => {
-    console.log("CTA clicked!");
-    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart', '_blank')
-    // Tu acción para el botón CTA
+  // Manejar expansión del navbar
+  const handleToggle = () => {
+    const newExpanded = !expanded;
+    setExpanded(newExpanded);
+    
+    // Agregar/remover clase al body
+    if (newExpanded) {
+      document.body.classList.add('navbar-expanded');
+      document.documentElement.classList.add('navbar-expanded');
+    } else {
+      document.body.classList.remove('navbar-expanded');
+      document.documentElement.classList.remove('navbar-expanded');
+    }
+  };
+
+  const handleNavLinkClick = () => {
+    if (window.innerWidth <= 992) {
+      setExpanded(false);
+      document.body.classList.remove('navbar-expanded');
+      document.documentElement.classList.remove('navbar-expanded');
+    }
+  };
+
+  const handleCTAClick = () => {
+    if (window.gtag) {
+      window.gtag('event', 'click', {
+        'event_category': 'Navbar CTA',
+        'event_label': 'Contacto desde Navbar'
+      });
+    }
+    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo%20smart', '_blank');
+    handleNavLinkClick();
   };
 
   // Función para scroll suave a las secciones
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+      // Cerrar navbar primero en móvil
+      if (window.innerWidth <= 992) {
+        setExpanded(false);
+        document.body.classList.remove('navbar-expanded');
+        document.documentElement.classList.remove('navbar-expanded');
+      }
+      
+      setTimeout(() => {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 300);
     }
   };
 
@@ -45,6 +83,8 @@ function Navbarsh() {
       collapseOnSelect 
       expand="lg" 
       fixed="top"
+      expanded={expanded}
+      onToggle={handleToggle}
       className={`custom-navbar ${scrolled ? 'scrolled' : ''}`}
       variant="dark"
     >
@@ -54,34 +94,49 @@ function Navbarsh() {
           <img 
             className="logo-img me-2" 
             src={Logo} 
-            alt="Logo" 
-            style={{ width: '50px', height: 'auto' }}
+            alt="Logo SmartHome" 
+            width="50"
+            height="50"
+            loading="lazy"
           />
-          <h3 className="welcome-text text-shadow text-light">Smart
-                <span className="text-danger text-shadow">Home</span>
-              </h3>
+          <h3 className="welcome-text text-shadow text-light">
+            Smart<span className="text-danger text-shadow">Home</span>
+          </h3>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle 
+          aria-controls="responsive-navbar-nav" 
+          aria-label="Toggle navigation"
+          aria-expanded={expanded}
+        />
         
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link 
-              onClick={() => scrollToSection('inicio')} 
+              onClick={() => {
+                scrollToSection('inicio');
+                handleNavLinkClick();
+              }} 
               className="nav-link-custom me-3"
             >
               Inicio
             </Nav.Link>
 
             <Nav.Link 
-              onClick={() => scrollToSection('serv')} 
+              onClick={() => {
+                scrollToSection('serv');
+                handleNavLinkClick();
+              }} 
               className="nav-link-custom me-3"
             >
               Servicios
             </Nav.Link>
 
             <Nav.Link 
-              onClick={() => scrollToSection('faq')} 
+              onClick={() => {
+                scrollToSection('faq');
+                handleNavLinkClick();
+              }} 
               className="nav-link-custom me-3"
             >
               Preguntas Frecuentes
@@ -93,37 +148,44 @@ function Navbarsh() {
               className="nav-dropdown-custom me-3"
             >
               <NavDropdown.Item 
-                onClick={() => scrollToSection('nosotros')}
+                onClick={() => {
+                  scrollToSection('nosotros');
+                  handleNavLinkClick();
+                }}
                 className="dropdown-item-custom"
               >
                 Sobre Nosotros
               </NavDropdown.Item>
-                <NavDropdown.Item 
-                onClick={() => scrollToSection('procesos')}
+              <NavDropdown.Item 
+                onClick={() => {
+                  scrollToSection('procesos');
+                  handleNavLinkClick();
+                }}
                 className="dropdown-item-custom"
               >
                 Nuestro proceso de trabajo
               </NavDropdown.Item>
               <NavDropdown.Item 
-                onClick={() => scrollToSection('proyectos')}
+                onClick={() => {
+                  scrollToSection('proyectos');
+                  handleNavLinkClick();
+                }}
                 className="dropdown-item-custom"
               >
                 Proyectos realizados
               </NavDropdown.Item>
             </NavDropdown>
 
-            
-            
             <Nav.Link 
-              onClick={() => scrollToSection('footer')} 
+              onClick={() => {
+                scrollToSection('footer');
+                handleNavLinkClick();
+              }} 
               className="nav-link-custom me-3"
             >
               Encontranos
             </Nav.Link>
-            
-            
 
-            {/* Botón CTA opcional */}
             <Nav.Link 
               onClick={handleCTAClick} 
               className="nav-cta-button ms-2"

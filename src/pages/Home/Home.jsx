@@ -15,6 +15,7 @@ export const Home = () => {
     <div>
 
       <div id="inicio">
+       
         <HeroSection />
       </div>
 
@@ -38,9 +39,7 @@ export const Home = () => {
         <ProjectsSection />
       </div>
 
-      <div id="nosotros">
-        <AboutSection />
-      </div>
+      
 
       <div id="faq">
         <FAQSection />
