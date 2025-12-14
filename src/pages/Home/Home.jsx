@@ -1,10 +1,7 @@
-import React from 'react'
-import Navbarsh from './Componentes/Navbar'
 import HeroSection from './Componentes/Hero_seccion'
 import ServicesSection from './Componentes/Servicios_Productos'
 import ProcessSection from './Componentes/Procesos'
 import ProjectsSection from './Componentes/Proyectos'
-import AboutSection from './Componentes/Nosotros'
 import FAQSection from './Componentes/Preguntas_Faq'
 import { Footer } from './Componentes/Foother'
 import Packs from './Componentes/Packs'
@@ -17,6 +14,7 @@ export const Home = () => {
     <div>
 
       <div id="inicio">
+       
         <HeroSection />
       </div>
 
@@ -55,7 +53,7 @@ export const Home = () => {
       <div id="footer">
         <Footer />
       </div>
-      Smart Home
+    
     </div>
   )
 }

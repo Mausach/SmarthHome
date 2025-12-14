@@ -1,63 +1,27 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ilus from '../../../assets/garaje.jpg';
-import ilus3 from '../../../assets/cerradura-card.jpg';
-import ilus2 from '../../../assets/tablet.jpg';
-import ilus4 from '../../../assets/pareja-luz.jpg';
+import "./Testimonios.css";
 
+// Importar imágenes optimizadas
 import us1 from '../../../assets/us1.png';
 import us2 from '../../../assets/us2.png';
 import us3 from '../../../assets/us5.png';
 import us4 from '../../../assets/us4.png';
 
-//link ig : https://www.instagram.com/smarthome_sgo/
+// Registrar ScrollTrigger de GSAP solo en cliente
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-
-// Registrar ScrollTrigger de GSAP
-gsap.registerPlugin(ScrollTrigger);
-
-const ProjectsTestimonialsSection = () => {
+const TestimoniosSection = () => {
   const sectionRef = useRef();
-  const projectCardsRef = useRef([]);
   const testimonialCardsRef = useRef([]);
   const ctaRef = useRef();
 
-  // Datos de los proyectos
-  const projectsData = [
-    {
-      id: 1,
-      image: ilus,
-      title: "Abre Portón de Garaje Inteligente",
-      description: "Implementación completa del sistema que perite abrir el portón del garaje desde un smart phone.",
-      link: "https://www.instagram.com/smarthome_sgo/"
-    },
-    {
-      id: 2,
-      image: ilus4,
-      title: "Departamento Automatizado",
-      description: "Transformación de apartamento en smart home con control centralizado desde app móvil.",
-      link: "https://www.instagram.com/smarthome_sgo/"
-    },
-    {
-      id: 3,
-      image: ilus3,
-      title: "Ceerradura Inteligente",
-      description: "Sistema de seguridad con control de acceso, monitoreo 24/7, acciones preventivas y seguridad contra robos.",
-      link: "https://www.instagram.com/smarthome_sgo/"
-    },
-    {
-      id: 4,
-      image: ilus2,
-      title: "Confort Automatizado",
-      description: "Implementación de módulo de ventilación inteligente permite optimizar la temperatura y calidad del aire de tu hogar",
-      link: "https://www.instagram.com/smarthome_sgo/"
-    }
-  ];
-
-  // Datos de los testimonios
-  const testimonialsData = [
+  // Datos de testimonios optimizados para SEO
+  const testimonialsData = useMemo(() => [
     {
       id: 1,
       name: "María González",
@@ -65,65 +29,86 @@ const ProjectsTestimonialsSection = () => {
       image: us3,
       rating: 5,
       comment: "Increíble servicio! Mi casa ahora es completamente inteligente y segura. La atención postventa es excepcional.",
-      project: "Automatizacion de hogar"
+      project: "Automatización de hogar",
+      projectImage: us1
     },
     {
       id: 2,
       name: "Carlos Rodríguez",
-      role: "Propietaria Casa",
+      role: "Propietario de Casa",
       image: us3,
       rating: 5,
       comment: "Profesionalismo total. Implementaron nuestro sistema de seguridad en tiempo récord.",
-      project: "Sistema de seguridad Domotica"
+      project: "Sistema de seguridad Domótica",
+      projectImage: us2
     },
     {
       id: 3,
       name: "Ana Martínez",
-      role: "Propietaria de departamento",
+      role: "Propietaria de Departamento",
       image: us3,
       rating: 5,
       comment: "La mejor inversión para mi departamento. Controlar todo desde el celular cambió mi calidad de vida.",
-      project: "Departamento Automatizado"
+      project: "Departamento Automatizado",
+      projectImage: us4
     },
     {
       id: 4,
       name: "Roberto Silva",
-      role: "Administrador Edificio",
+      role: "Administrador de Edificio",
       image: us3,
       rating: 5,
       comment: "Sistema impecable para nuestro edificio. Los residentes están muy satisfechos con la seguridad.",
-      project: "Edificio Residencial"
+      project: "Edificio Residencial",
+      projectImage: us1
+    },
+    // Nuevos testimonios con imagen en lugar de texto
+    {
+      id: 5,
+      name: "Laura Fernández",
+      role: "Propietaria de Vivienda",
+      image: us2,
+      rating: 5,
+      project: "Casa Inteligente Completa",
+      projectImage: us1,
+      type: "image"
+    },
+    {
+      id: 6,
+      name: "Javier López",
+      role: "Empresario",
+      image: us4,
+      rating: 5,
+      project: "Oficina Automatizada",
+      projectImage: us2,
+      type: "image"
+    },
+    {
+      id: 7,
+      name: "Carmen Ruiz",
+      role: "Arquitecta",
+      image: us1,
+      rating: 5,
+      project: "Departamento de Lujo",
+      projectImage: us3,
+      type: "image"
+    },
+    {
+      id: 8,
+      name: "Diego Sánchez",
+      role: "Inversionista",
+      image: us4,
+      rating: 5,
+      project: "Edificio Corporativo",
+      projectImage: us4,
+      type: "image"
     }
-  ];
+  ], []);
 
-  // Animaciones con GSAP
+  // Animaciones optimizadas con GSAP
   useEffect(() => {
-    // Animación de las cards de proyectos
-    projectCardsRef.current.forEach((card, index) => {
-      if (!card) return;
-
-      gsap.fromTo(card,
-        {
-          x: -100,
-          opacity: 0,
-          scale: 0.9
-        },
-        {
-          x: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    });
+    // Solo ejecutar animaciones en cliente
+    if (typeof window === 'undefined') return;
 
     // Animación de las cards de testimonios
     testimonialCardsRef.current.forEach((card, index) => {
@@ -131,172 +116,195 @@ const ProjectsTestimonialsSection = () => {
 
       gsap.fromTo(card,
         {
-          x: 100,
+          y: 50,
           opacity: 0,
-          rotationY: 90
+          scale: 0.95
         },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          rotationY: 0,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: "back.out(1.7)",
+          scale: 1,
+          duration: 0.6,
+          delay: index * 0.15,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
+            start: "top 90%",
+            end: "bottom 10%",
+            toggleActions: "play none none reverse",
+            once: true // Solo animar una vez
           }
         }
       );
-
-      // Efecto de flotación continua para testimonios
-      gsap.to(card, {
-        y: -10,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: index * 0.5
-      });
     });
 
     // Animación del botón CTA
-    gsap.fromTo(ctaRef.current,
-      {
-        y: 50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 90%",
-          end: "bottom 10%",
-          toggleActions: "play none none reverse"
+    if (ctaRef.current) {
+      gsap.fromTo(ctaRef.current,
+        {
+          y: 30,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true
+          }
         }
-      }
-    );
+      );
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 
-  const addToProjectRefs = (el) => {
-    if (el && !projectCardsRef.current.includes(el)) {
-      projectCardsRef.current.push(el);
-    }
-  };
-
-  const addToTestimonialRefs = (el) => {
+  // Función para manejar referencias de testimonios
+  const addToTestimonialRefs = React.useCallback((el) => {
     if (el && !testimonialCardsRef.current.includes(el)) {
       testimonialCardsRef.current.push(el);
     }
-  };
+  }, []);
 
-  //funcion cta
-    const handleCTAClick = () => {
-    console.log("CTA clicked!");
-    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart', '_blank')
-    // Tu acción para el botón CTA
-  };
+  // Función para el CTA
+  const handleCTAClick = React.useCallback(() => {
+    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo%20smart', '_blank');
+  }, []);
 
-  // Función para renderizar estrellas de rating
-  const renderStars = (rating) => {
+  // Función para renderizar estrellas
+  const renderStars = React.useCallback((rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <i
         key={index}
         className={`bi ${index < rating ? 'bi-star-fill' : 'bi-star'} text-warning`}
-      ></i>
+        aria-label={`${rating} de 5 estrellas`}
+      />
     ));
-  };
+  }, []);
 
   return (
-    <section ref={sectionRef} className="projects-testimonials-section py-5">
+    <section ref={sectionRef} className="testimonios-section py-5" aria-label="Testimonios de clientes">
       <Container>
         {/* Título de la sección */}
         <Row className="mb-5">
-          <Col lg={8} className="mx-auto text-center ">
-            <h2 className="display-4 fw-bold text-white mb-3">
-              Proyectos y Testimonios
-            </h2>
+          <Col lg={8} className="mx-auto text-center">
+            <h1 className="display-5 fw-bold text-white mb-3">
+              Lo que dicen nuestros clientes
+            </h1>
             <p className="lead text-white">
-              Conoce nuestros trabajos y lo que dicen nuestros clientes
+              Experiencias reales de quienes han transformado sus espacios con nuestra tecnología
             </p>
           </Col>
         </Row>
 
-        {/* Fila de Proyectos */}
+        {/* Testimonios tradicionales (con texto) */}
         <Row className="mb-5">
           <Col>
-            <h3 className="section-subtitle text-center mb-4">Nuestros Proyectos</h3>
+            <h2 className="section-subtitle text-center mb-4">Testimonios de confianza</h2>
           </Col>
         </Row>
+        
         <Row className="g-4 mb-5">
-          {projectsData.map((project) => (
-            <Col key={project.id} lg={6} xl={3} md={6}>
-              <Card
-                ref={addToProjectRefs}
-                className="project-card border-0 shadow-lg h-100"
-                onClick={() => window.location.href = project.link}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="project-image-container">
-                  <Card.Img
-                    variant="top"
-                    src={project.image}
-                    alt={project.title}
-                    className="project-image"
-                  />
-                  <div className="project-overlay"></div>
-                </div>
-                <Card.Body className="p-4">
-                  <Card.Title className="project-title fw-bold mb-3">
-                    {project.title}
-                  </Card.Title>
-                  <Card.Text className="project-description text-muted">
-                    {project.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-
-        {/* Fila de Testimonios */}
-        <Row className="mb-5">
-          <Col>
-            <h3 className="section-subtitle text-center mb-4">Lo que dicen nuestros clientes</h3>
-          </Col>
-        </Row>
-        <Row className="g-4 mb-5">
-          {testimonialsData.map((testimonial) => (
-            <Col key={testimonial.id} lg={6} xl={3} md={6}>
-              <Card
+          {testimonialsData.slice(0, 4).map((testimonial) => (
+            <Col key={testimonial.id} lg={6} xl={3} md={6} className="mb-4">
+              <article
                 ref={addToTestimonialRefs}
-                className="testimonial-card border-0 shadow h-100"
+                className="testimonial-card border-0 shadow h-100 d-flex flex-column"
+                itemScope
+                itemType="https://schema.org/Review"
               >
-                <Card.Body className="p-4 d-flex flex-column">
+                <Card.Body className="p-4 d-flex flex-column flex-grow-1">
                   {/* Header del testimonio */}
                   <div className="testimonial-header d-flex align-items-center mb-3">
                     <img
                       src={testimonial.image}
-                      alt={testimonial.name}
+                      alt={`Foto de ${testimonial.name}`}
                       className="testimonial-avatar rounded-circle me-3"
-                      width="50"
-                      height="50"
+                      width="60"
+                      height="60"
+                      loading="lazy"
+                      itemProp="image"
                     />
-
                     <div>
-                      <h6 className="testimonial-name fw-bold mb-1">
+                      <h3 className="testimonial-name fw-bold mb-1 h6" itemProp="author">
                         {testimonial.name}
-                      </h6>
+                      </h3>
+                      <small className="testimonial-role text-muted" itemProp="description">
+                        {testimonial.role}
+                      </small>
+                    </div>
+                  </div>
+
+                  {/* Rating con schema.org */}
+                  <div 
+                    className="testimonial-rating mb-3" 
+                    itemProp="reviewRating" 
+                    itemScope 
+                    itemType="https://schema.org/Rating"
+                  >
+                    <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
+                    <meta itemProp="bestRating" content="5" />
+                    {renderStars(testimonial.rating)}
+                  </div>
+
+                  {/* Comentario */}
+                  <blockquote 
+                    className="testimonial-comment flex-grow-1 mb-3"
+                    itemProp="reviewBody"
+                  >
+                    "{testimonial.comment}"
+                  </blockquote>
+
+                  {/* Proyecto relacionado */}
+                  <div className="testimonial-project mt-auto pt-3 border-top">
+                    <small className="text-dark fw-bold">
+                      Proyecto: <span itemProp="name">{testimonial.project}</span>
+                    </small>
+                  </div>
+                </Card.Body>
+              </article>
+            </Col>
+          ))}
+        </Row>
+
+        {/* Nueva sección de testimonios con imágenes */}
+        <Row className="mb-5">
+          <Col>
+            <h2 className="section-subtitle text-center mb-4">Proyectos destacados</h2>
+          </Col>
+        </Row>
+        
+        <Row className="g-4 mb-5">
+          {testimonialsData.slice(4).map((testimonial) => (
+            <Col key={testimonial.id} lg={6} xl={3} md={6} className="mb-4">
+              <article
+                ref={addToTestimonialRefs}
+                className="testimonial-image-card border-0 shadow h-100"
+                itemScope
+                itemType="https://schema.org/Review"
+              >
+                <Card.Body className="p-4 d-flex flex-column">
+                  {/* Header del testimonio */}
+                  <div className="testimonial-header d-flex align-items-center mb-4">
+                    <img
+                      src={testimonial.image}
+                      alt={`Foto de ${testimonial.name}`}
+                      className="testimonial-avatar rounded-circle me-3"
+                      width="60"
+                      height="60"
+                      loading="lazy"
+                    />
+                    <div>
+                      <h3 className="testimonial-name fw-bold mb-1 h6" itemProp="author">
+                        {testimonial.name}
+                      </h3>
                       <small className="testimonial-role text-muted">
                         {testimonial.role}
                       </small>
@@ -304,28 +312,34 @@ const ProjectsTestimonialsSection = () => {
                   </div>
 
                   {/* Rating */}
-                  <div className="testimonial-rating mb-3">
+                  <div className="testimonial-rating mb-4">
                     {renderStars(testimonial.rating)}
                   </div>
 
-                  {/* Comentario */}
-                  <blockquote className="testimonial-comment flex-grow-1">
-                    "{testimonial.comment}"
-                  </blockquote>
+                  {/* Imagen del proyecto en lugar de texto */}
+                  <div className="testimonial-image-container mb-4">
+                    <img
+                      src={testimonial.projectImage}
+                      alt={`Proyecto: ${testimonial.project}`}
+                      className="testimonial-project-image w-100 rounded"
+                      loading="lazy"
+                      itemProp="image"
+                    />
+                  </div>
 
-                  {/* Proyecto relacionado */}
-                  <div className="testimonial-project mt-3 pt-3 border-top">
-                    <small className="text- fw-bold">
-                      Proyecto: {testimonial.project}
-                    </small>
+                  {/* Nombre del proyecto */}
+                  <div className="testimonial-project-name text-center mt-auto">
+                    <h4 className="h5 fw-bold text-dark mb-0" itemProp="name">
+                      {testimonial.project}
+                    </h4>
                   </div>
                 </Card.Body>
-              </Card>
+              </article>
             </Col>
           ))}
         </Row>
 
-        {/* Botón CTA */}
+        {/* Botón CTA optimizado */}
         <Row>
           <Col className="text-center">
             <Button
@@ -334,6 +348,7 @@ const ProjectsTestimonialsSection = () => {
               size="lg"
               className="cta-button"
               onClick={handleCTAClick}
+              aria-label="Empezar mi proyecto de domótica"
             >
               Empezar mi proyecto
             </Button>
@@ -344,4 +359,5 @@ const ProjectsTestimonialsSection = () => {
   );
 };
 
-export default ProjectsTestimonialsSection;
+// Componente optimizado con React.memo
+export default React.memo(TestimoniosSection);

@@ -1,0 +1,181 @@
+
+/* Navbar transparente por defecto */
+.custom-navbar {
+  background: transparent !important;
+  backdrop-filter: blur(0px);
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+/* Navbar cuando se hace scroll */
+.custom-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-img {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.custom-navbar.scrolled .logo-img {
+  transform: scale(0.9);
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Links de navegación */
+.nav-link-custom {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+
+.nav-link-custom:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #444444, #df1024);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link-custom:hover::after {
+  width: 80%;
+}
+
+/* Dropdown personalizado */
+.nav-dropdown-custom .dropdown-toggle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-dropdown-custom .dropdown-toggle:hover,
+.nav-dropdown-custom.show .dropdown-toggle {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-dropdown-custom .dropdown-menu {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 0.5rem;
+  margin-top: 0.5rem !important;
+}
+
+.dropdown-item-custom {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.dropdown-item-custom:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* Botón CTA especial */
+.nav-cta-button {
+  background: linear-gradient(45deg, #c6c8c9, #ebedf0) !important;
+
+  color: rgb(24, 23, 23) !important;
+  border-radius: 25px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.nav-cta-button:hover {
+  background: linear-gradient(45deg, #b30000, #850000) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(239, 241, 243, 0.4);
+  color: rgb(231, 226, 226) !important;
+}
+
+/* Toggle button para móviles */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 0.25rem 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .custom-navbar {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-link-custom {
+    padding: 0.75rem 1rem !important;
+    border-radius: 10px;
+    margin: 0.25rem 0;
+  }
+
+  .nav-dropdown-custom .dropdown-toggle {
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0;
+  }
+
+  .nav-cta-button {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Animación suave para todos los elementos */
+.custom-navbar * {
+  transition: all 0.3s ease;
+}
+
