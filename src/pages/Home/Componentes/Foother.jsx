@@ -1,9 +1,11 @@
-import React from 'react';
-import { Container, Row, Col, Nav, Button } from 'react-bootstrap';
-import Logo from '../../../assets/Logo.jpg';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Nav, Button, Accordion } from 'react-bootstrap';
+import Logo from '../../../assets/SmartHome-logo-no-bck.png';
 import swal from 'sweetalert2';
+import "./Foother.css";
 
 export const Footer = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
   const ir_404 = (e) => {
     e.preventDefault();
@@ -14,12 +16,36 @@ export const Footer = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-    //funcion cta
-    const handleCTAClick = () => {
+  const handleCTAClick = () => {
     console.log("CTA clicked!");
     window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart', '_blank')
-    // Tu acción para el botón CTA
   };
+
+  // Detectar si es dispositivo móvil/tablet
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Navegación principal (siempre visible)
+  const mainNavigation = [
+    { id: 'inicio', label: 'Inicio', icon: 'bi-house' },
+    { id: 'servicios', label: 'Servicios', icon: 'bi-briefcase' },
+    { id: 'faq', label: 'Preguntas Frecuentes', icon: 'bi-question-circle' }
+  ];
+
+  // Navegación adicional (solo visible en desktop)
+  const additionalNavigation = [
+    { id: 'nosotros', label: 'Nosotros', icon: 'bi-people' },
+    { id: 'proyectos', label: 'Proyectos', icon: 'bi-images' },
+    { id: 'proceso', label: 'Cómo Trabajamos', icon: 'bi-gear' }
+  ];
 
   return (
     <footer className='footer-custom py-5 text-white'>
@@ -31,7 +57,7 @@ export const Footer = () => {
               <img 
                 className="footer-logo mb-3" 
                 src={Logo} 
-                alt="Logo" 
+                alt="Logo SmartHome Solutions" 
               />
               <h5 className="brand-name mb-3">SmartHome Solutions</h5>
               <p className="footer-description">
@@ -39,7 +65,6 @@ export const Footer = () => {
                 Más de 5 años creando soluciones personalizadas para familias y empresas.
               </p>
               
-              {/* Botón de contacto */}
               <Button
                 variant="outline-light"
                 className="rounded-pill mt-2"
@@ -54,50 +79,38 @@ export const Footer = () => {
           {/* Columna 2: Navegación */}
           <Col lg={3} md={6} className="mb-4">
             <h5 className="footer-title mb-4">Navegación</h5>
+            
+            {/* Navegación principal - siempre visible */}
             <Nav className="flex-column">
-              <Nav.Link 
-                onClick={() => scrollToSection('inicio')} 
-                className="footer-link"
-              >
-                <i className="bi bi-house me-2"></i>
-                Inicio
-              </Nav.Link>
-              <Nav.Link 
-                onClick={() => scrollToSection('nosotros')} 
-                className="footer-link"
-              >
-                <i className="bi bi-people me-2"></i>
-                Nosotros
-              </Nav.Link>
-              <Nav.Link 
-                onClick={() => scrollToSection('servicios')} 
-                className="footer-link"
-              >
-                <i className="bi bi-briefcase me-2"></i>
-                Servicios
-              </Nav.Link>
-              <Nav.Link 
-                onClick={() => scrollToSection('proyectos')} 
-                className="footer-link"
-              >
-                <i className="bi bi-images me-2"></i>
-                Proyectos
-              </Nav.Link>
-              <Nav.Link 
-                onClick={() => scrollToSection('proceso')} 
-                className="footer-link"
-              >
-                <i className="bi bi-gear me-2"></i>
-                Cómo Trabajamos
-              </Nav.Link>
-              <Nav.Link 
-                onClick={() => scrollToSection('faq')} 
-                className="footer-link"
-              >
-                <i className="bi bi-question-circle me-2"></i>
-                Preguntas Frecuentes
-              </Nav.Link>
+              {mainNavigation.map((item) => (
+                <Nav.Link 
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)} 
+                  className="footer-link"
+                >
+                  <i className={`${item.icon} me-2`}></i>
+                  {item.label}
+                </Nav.Link>
+              ))}
             </Nav>
+
+            {/* Navegación adicional para desktop */}
+            {!isMobile && additionalNavigation.length > 0 && (
+              <div className="mt-3">
+                <Nav className="flex-column">
+                  {additionalNavigation.map((item) => (
+                    <Nav.Link 
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)} 
+                      className="footer-link"
+                    >
+                      <i className={`${item.icon} me-2`}></i>
+                      {item.label}
+                    </Nav.Link>
+                  ))}
+                </Nav>
+              </div>
+            )}
           </Col>
 
           {/* Columna 3: Contacto */}
@@ -158,8 +171,6 @@ export const Footer = () => {
                   <span>Instagram</span>
                 </a>
                 
-             
-                
                 <a 
                   href="https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo smart'" 
                   className="social-link whatsapp"
@@ -170,9 +181,7 @@ export const Footer = () => {
                   <span>WhatsApp</span>
                 </a>
                 
-               
-                
-                  <a 
+                <a 
                   href="https://www.facebook.com/JULIOSANTIAGOAYALA" 
                   className="social-link facebook"
                   target="_blank" 
@@ -181,15 +190,13 @@ export const Footer = () => {
                   <i className="bi bi-facebook"></i>
                   <span>Facebook</span>
                 </a>
-                
-             
               </div>
             </div>
           </Col>
         </Row>
         
         {/* Línea separadora */}
-        <hr />
+        <hr className="footer-divider" />
         
         {/* Copyright */}
         <Row className="align-items-center">

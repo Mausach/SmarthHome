@@ -4,18 +4,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from '../../../assets/SmartHome-logo-no-bck.png';
-import "./Navbar.css";
+import "../../Home/Componentes/Navbar.css";
 import { useNavigate } from 'react-router-dom';
 
-function Navbarsh() {
+function Navbarsh_g() {
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
-
-     const navigate = useNavigate();
-
-    const ir_Proyectos = () => {
-        navigate('/proyectos')
-    }
 
   // Efecto para cambiar el navbar al hacer scroll
   useEffect(() => {
@@ -25,7 +19,7 @@ function Navbarsh() {
     };
 
     window.addEventListener('scroll', handleScroll);
-
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -35,7 +29,7 @@ function Navbarsh() {
   const handleToggle = () => {
     const newExpanded = !expanded;
     setExpanded(newExpanded);
-
+    
     // Agregar/remover clase al body
     if (newExpanded) {
       document.body.classList.add('navbar-expanded');
@@ -75,9 +69,9 @@ function Navbarsh() {
         document.body.classList.remove('navbar-expanded');
         document.documentElement.classList.remove('navbar-expanded');
       }
-
+      
       setTimeout(() => {
-        element.scrollIntoView({
+        element.scrollIntoView({ 
           behavior: 'smooth',
           block: 'start'
         });
@@ -85,10 +79,16 @@ function Navbarsh() {
     }
   };
 
+      const navigate = useNavigate();
+
+    const ir_Home = () => {
+        navigate('/*')
+    }
+
   return (
-    <Navbar
-      collapseOnSelect
-      expand="lg"
+    <Navbar 
+      collapseOnSelect 
+      expand="lg" 
       fixed="top"
       expanded={expanded}
       onToggle={handleToggle}
@@ -98,10 +98,10 @@ function Navbarsh() {
       <Container>
         {/* Logo y Brand */}
         <Navbar.Brand href="#home" className="d-flex align-items-center">
-          <img
-            className="logo-img me-2"
-            src={Logo}
-            alt="Logo SmartHome"
+          <img 
+            className="logo-img me-2" 
+            src={Logo} 
+            alt="Logo SmartHome" 
             width="50"
             height="50"
             loading="lazy"
@@ -111,66 +111,25 @@ function Navbarsh() {
           </h3>
         </Navbar.Brand>
 
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
+        <Navbar.Toggle 
+          aria-controls="responsive-navbar-nav" 
           aria-label="Toggle navigation"
           aria-expanded={expanded}
         />
-
+        
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link
-              onClick={() => {
-                scrollToSection('inicio');
-                handleNavLinkClick();
-              }}
+       
+
+            <Nav.Link 
+              onClick={ir_Home} 
               className="nav-link-custom me-3"
             >
-              Inicio
+              Volver al inicio
             </Nav.Link>
 
-            <Nav.Link
-              onClick={() => {
-                scrollToSection('serv');
-                handleNavLinkClick();
-              }}
-              className="nav-link-custom me-3"
-            >
-              Servicios
-            </Nav.Link>
-
-            <Nav.Link
-              onClick={() => {
-                scrollToSection('testimonios');
-                handleNavLinkClick();
-              }}
-              className="nav-link-custom me-3"
-            >
-              Testimonios
-            </Nav.Link>
-
-            <Nav.Link
-              onClick={() => {
-                scrollToSection('faq');
-                handleNavLinkClick();
-              }}
-              className="nav-link-custom me-3"
-            >
-              Preguntas Frecuentes
-            </Nav.Link>
-
-            <Nav.Link
-              onClick={() => {
-                scrollToSection('footer');
-                handleNavLinkClick();
-              }}
-              className="nav-link-custom me-3"
-            >
-              Encontranos
-            </Nav.Link>
-
-            <Nav.Link
-              onClick={handleCTAClick}
+            <Nav.Link 
+              onClick={handleCTAClick} 
               className="nav-cta-button ms-2"
             >
               Contacto
@@ -182,4 +141,4 @@ function Navbarsh() {
   );
 }
 
-export default Navbarsh;
+export default Navbarsh_g;

@@ -5,10 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import "./Testimonios.css";
 
 // Importar imágenes optimizadas
-import us1 from '../../../assets/us1.png';
-import us2 from '../../../assets/us2.png';
-import us3 from '../../../assets/us5.png';
-import us4 from '../../../assets/us4.png';
+import us5 from '../../../assets/prub.png';
+import us6 from '../../../assets/prub2.png';
+import us7 from '../../../assets/prub3.png';
+import us8 from '../../../assets/prub4.png';
+import { useNavigate } from 'react-router-dom';
 
 // Registrar ScrollTrigger de GSAP solo en cliente
 if (typeof window !== 'undefined') {
@@ -20,88 +21,57 @@ const TestimoniosSection = () => {
   const testimonialCardsRef = useRef([]);
   const ctaRef = useRef();
 
-  // Datos de testimonios optimizados para SEO
+
+  const navigate = useNavigate();
+
+  const ir_Proyectos = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    navigate('/proyectos')
+  }
+
+
+
+  // Datos de testimonios optimizados para SEO - SOLO 4 TESTIMONIOS
   const testimonialsData = useMemo(() => [
     {
       id: 1,
-      name: "María González",
+      name: "María Gay de Castellanos",
       role: "Propietaria Casa Moderna",
-      image: us3,
+      image: us5,
       rating: 5,
-      comment: "Increíble servicio! Mi casa ahora es completamente inteligente y segura. La atención postventa es excepcional.",
-      project: "Automatización de hogar",
-      projectImage: us1
+      comment: "Son Excelentes, trabajaron en un porton de mi casa. GRACIAS GENIOS. Muy recomendables",
+      project: "Kit Completo de Portón Inteligente"
     },
     {
       id: 2,
-      name: "Carlos Rodríguez",
+      name: "Jorge Haick",
       role: "Propietario de Casa",
-      image: us3,
+      image: us6,
       rating: 5,
-      comment: "Profesionalismo total. Implementaron nuestro sistema de seguridad en tiempo récord.",
-      project: "Sistema de seguridad Domótica",
-      projectImage: us2
+      comment: "Todo quedo perfecto, la verdad laburaron a full con mi porton que tenia varias mañas pero quedo perfecto. Asi que muy agradecido y los recomiendo al 100%",
+      project: "Kit Completo de Portón Inteligente"
     },
     {
       id: 3,
-      name: "Ana Martínez",
+      name: "Lorena Cortez",
       role: "Propietaria de Departamento",
-      image: us3,
+      image: us7,
       rating: 5,
-      comment: "La mejor inversión para mi departamento. Controlar todo desde el celular cambió mi calidad de vida.",
-      project: "Departamento Automatizado",
-      projectImage: us4
+      comment: "Hola muy buen dia.Encantada de contratarlos. Me transmitieron confianza y seguridad. Ya los recomendé con varias personas. Gracias por la disposición",
+      project: " Reparación del motor del portón corredizo y reubicación del motor"
     },
     {
       id: 4,
-      name: "Roberto Silva",
+      name: "Gabriel Baliani ",
       role: "Administrador de Edificio",
-      image: us3,
+      image: us8,
       rating: 5,
-      comment: "Sistema impecable para nuestro edificio. Los residentes están muy satisfechos con la seguridad.",
-      project: "Edificio Residencial",
-      projectImage: us1
-    },
-    // Nuevos testimonios con imagen en lugar de texto
-    {
-      id: 5,
-      name: "Laura Fernández",
-      role: "Propietaria de Vivienda",
-      image: us2,
-      rating: 5,
-      project: "Casa Inteligente Completa",
-      projectImage: us1,
-      type: "image"
-    },
-    {
-      id: 6,
-      name: "Javier López",
-      role: "Empresario",
-      image: us4,
-      rating: 5,
-      project: "Oficina Automatizada",
-      projectImage: us2,
-      type: "image"
-    },
-    {
-      id: 7,
-      name: "Carmen Ruiz",
-      role: "Arquitecta",
-      image: us1,
-      rating: 5,
-      project: "Departamento de Lujo",
-      projectImage: us3,
-      type: "image"
-    },
-    {
-      id: 8,
-      name: "Diego Sánchez",
-      role: "Inversionista",
-      image: us4,
-      rating: 5,
-      project: "Edificio Corporativo",
-      projectImage: us4,
-      type: "image"
+      comment: "Buenas! costo que vengan la primera vez pero me imagino que estan muy ocupados, cuando llegaron hicieron todo bien y rapido y a de mas el soporte me resolvio un problema dias despues de la mejor manera. EXCELENTE SERVICIO",
+      project: "Kit Completo de Portón Inteligente"
     }
   ], []);
 
@@ -173,10 +143,7 @@ const TestimoniosSection = () => {
     }
   }, []);
 
-  // Función para el CTA
-  const handleCTAClick = React.useCallback(() => {
-    window.open('https://wa.me/5493855724629?text=Hola,%20me%20interesa%20saber%20más%20sobre%20el%20lo%20smart', '_blank');
-  }, []);
+
 
   // Función para renderizar estrellas
   const renderStars = React.useCallback((rating) => {
@@ -210,9 +177,9 @@ const TestimoniosSection = () => {
             <h2 className="section-subtitle text-center mb-4">Testimonios de confianza</h2>
           </Col>
         </Row>
-        
+
         <Row className="g-4 mb-5">
-          {testimonialsData.slice(0, 4).map((testimonial) => (
+          {testimonialsData.map((testimonial) => (
             <Col key={testimonial.id} lg={6} xl={3} md={6} className="mb-4">
               <article
                 ref={addToTestimonialRefs}
@@ -243,10 +210,10 @@ const TestimoniosSection = () => {
                   </div>
 
                   {/* Rating con schema.org */}
-                  <div 
-                    className="testimonial-rating mb-3" 
-                    itemProp="reviewRating" 
-                    itemScope 
+                  <div
+                    className="testimonial-rating mb-3"
+                    itemProp="reviewRating"
+                    itemScope
                     itemType="https://schema.org/Rating"
                   >
                     <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
@@ -255,7 +222,7 @@ const TestimoniosSection = () => {
                   </div>
 
                   {/* Comentario */}
-                  <blockquote 
+                  <blockquote
                     className="testimonial-comment flex-grow-1 mb-3"
                     itemProp="reviewBody"
                   >
@@ -274,71 +241,6 @@ const TestimoniosSection = () => {
           ))}
         </Row>
 
-        {/* Nueva sección de testimonios con imágenes */}
-        <Row className="mb-5">
-          <Col>
-            <h2 className="section-subtitle text-center mb-4">Proyectos destacados</h2>
-          </Col>
-        </Row>
-        
-        <Row className="g-4 mb-5">
-          {testimonialsData.slice(4).map((testimonial) => (
-            <Col key={testimonial.id} lg={6} xl={3} md={6} className="mb-4">
-              <article
-                ref={addToTestimonialRefs}
-                className="testimonial-image-card border-0 shadow h-100"
-                itemScope
-                itemType="https://schema.org/Review"
-              >
-                <Card.Body className="p-4 d-flex flex-column">
-                  {/* Header del testimonio */}
-                  <div className="testimonial-header d-flex align-items-center mb-4">
-                    <img
-                      src={testimonial.image}
-                      alt={`Foto de ${testimonial.name}`}
-                      className="testimonial-avatar rounded-circle me-3"
-                      width="60"
-                      height="60"
-                      loading="lazy"
-                    />
-                    <div>
-                      <h3 className="testimonial-name fw-bold mb-1 h6" itemProp="author">
-                        {testimonial.name}
-                      </h3>
-                      <small className="testimonial-role text-muted">
-                        {testimonial.role}
-                      </small>
-                    </div>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="testimonial-rating mb-4">
-                    {renderStars(testimonial.rating)}
-                  </div>
-
-                  {/* Imagen del proyecto en lugar de texto */}
-                  <div className="testimonial-image-container mb-4">
-                    <img
-                      src={testimonial.projectImage}
-                      alt={`Proyecto: ${testimonial.project}`}
-                      className="testimonial-project-image w-100 rounded"
-                      loading="lazy"
-                      itemProp="image"
-                    />
-                  </div>
-
-                  {/* Nombre del proyecto */}
-                  <div className="testimonial-project-name text-center mt-auto">
-                    <h4 className="h5 fw-bold text-dark mb-0" itemProp="name">
-                      {testimonial.project}
-                    </h4>
-                  </div>
-                </Card.Body>
-              </article>
-            </Col>
-          ))}
-        </Row>
-
         {/* Botón CTA optimizado */}
         <Row>
           <Col className="text-center">
@@ -347,10 +249,10 @@ const TestimoniosSection = () => {
               variant="primary"
               size="lg"
               className="cta-button"
-              onClick={handleCTAClick}
+              onClick={ir_Proyectos}
               aria-label="Empezar mi proyecto de domótica"
             >
-              Empezar mi proyecto
+              Ver la galeria de trabajos
             </Button>
           </Col>
         </Row>

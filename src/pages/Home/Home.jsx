@@ -8,13 +8,14 @@ import Packs from './Componentes/Packs'
 import Beneficios from './Componentes/Beneficios'
 import PorqueElegirnos from './Componentes/PorqueElegirnos'
 import Counter from './Componentes/Counter'
+import Navbarsh from './Componentes/Navbar'
 
 export const Home = () => {
   return (
     <div>
 
       <div id="inicio">
-       
+        <Navbarsh/>
         <HeroSection />
       </div>
 
@@ -38,11 +39,11 @@ export const Home = () => {
         <Counter />
       </div>
 
-      <div id="procesos">
+      <div id="proceso">
         <ProcessSection />
       </div>
 
-      <div id="proyectos">
+      <div id="testimonios">
         <ProjectsSection />
       </div>
 

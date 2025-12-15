@@ -119,7 +119,7 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section" role="banner" aria-label="Carrusel principal">
-       <Navbarsh/>
+       
       <Carousel 
         activeIndex={index} 
         onSelect={handleSelect}

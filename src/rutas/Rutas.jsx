@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
 import { Home } from '../pages/Home/Home'
+import { Galeria } from '../pages/Galeria/Galeria'
+import Navbarsh from '../pages/Home/Componentes/Navbar'
+import { Footer } from '../pages/Home/Componentes/Foother'
 
 
 
@@ -33,15 +36,17 @@ Desventajas:
 export const AppRouter = () => {
   return (
     <HashRouter>
-        <Routes>
+
+      <Routes>
 
         <Route path="/*" element={<Home />} />
-      
+        <Route path="/proyectos" element={<Galeria />} />
+
 
 
       </Routes>
-
+   
     </HashRouter>
-    
+
   )
 }
