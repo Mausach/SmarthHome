@@ -4,10 +4,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Packs.css"
 
-import portonImg from '../../../assets/garaje.jpg';
+import portonImg from '../../../assets/garaje.webp';
 import seguridadImg from '../../../assets/artefacts.webp';
-import comodidadImg from '../../../assets/tablet.jpg';
-import smartImg from '../../../assets/pareja-luz.jpg';
+import comodidadImg from '../../../assets/tablet.webp';
+import smartImg from '../../../assets/pareja-luz.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

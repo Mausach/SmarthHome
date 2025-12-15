@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
-import ilus from '../../../assets/cerradura-pro.jpg';
-import ilus3 from '../../../assets/cam-2.jpg';
-import ilus2 from '../../../assets/luz-feliz.jpg';
+import ilus from '../../../assets/cerradura-pro.webp';
+import ilus3 from '../../../assets/cam-2.webp';
+import ilus2 from '../../../assets/luz-feliz.webp';
 import Navbarsh from './Navbar';
 import "./Hero_Section.css";
 
