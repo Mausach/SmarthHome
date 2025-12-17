@@ -190,6 +190,19 @@ export const Footer = () => {
                   <i className="bi bi-facebook"></i>
                   <span>Facebook</span>
                 </a>
+
+                  <a 
+                  href="https://www.tiktok.com/@santiagoayala1339?referer_url=localhost%3A5173%2F&refer=embed&embed_source=121374463%2C121468991%2C121439635%2C121749182%2C121433650%2C121404359%2C121497414%2C121477481%2C121351166%2C121811500%2C121960941%2C121860360%2C121487028%2C121331973%2C120811592%2C120810756%2C121885509%3Bnull%3Bembed_masking&referer_video_id=7570388663075474706" 
+                  className="social-link instagram"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <i className="bi bi-tiktok"></i>
+                  <span>Tiktok</span>
+                </a>
+
+
+                
               </div>
             </div>
           </Col>
@@ -200,20 +213,12 @@ export const Footer = () => {
         
         {/* Copyright */}
         <Row className="align-items-center">
-          <Col md={6} className="text-center text-md-start">
+          <Col md={12} className="text-center ">
             <p className="mb-0">
-              &copy; 2025 <strong>SmartHome Solutions</strong>. Todos los derechos reservados.
+              &copy; 2026 <strong>SmartHome Solutions</strong>. Todos los derechos reservados.
             </p>
           </Col>
-          <Col md={6} className="text-center text-md-end">
-            <div className="footer-legal-links">
-              <a href="#politica-privacidad" onClick={ir_404}>Política de Privacidad</a>
-              <span className="mx-2">•</span>
-              <a href="#terminos-servicio" onClick={ir_404}>Términos de Servicio</a>
-              <span className="mx-2">•</span>
-              <a href="#aviso-legal" onClick={ir_404}>Aviso Legal</a>
-            </div>
-          </Col>
+      
         </Row>
       </Container>
     </footer>

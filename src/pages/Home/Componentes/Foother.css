@@ -18,7 +18,7 @@
 
 /* Logo y marca */
 .footer-logo {
-  width: 120px; /* Aumentado para mejor visibilidad */
+  width: 120px;
   height: auto;
   filter: brightness(1.1);
   object-fit: contain;
@@ -41,7 +41,11 @@
   margin-bottom: 1.5rem;
 }
 
-/* Títulos de secciones */
+/* ============================================
+   ESCRITORIO (más de 768px)
+   ============================================ */
+
+/* Títulos de secciones - DESKTOP */
 .footer-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -62,7 +66,7 @@
   border-radius: 1px;
 }
 
-/* Links de navegación */
+/* Links de navegación - DESKTOP */
 .footer-link {
   color: rgba(255, 255, 255, 0.7) !important;
   padding: 0.5rem 0 !important;
@@ -72,9 +76,6 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-link:hover {
@@ -86,28 +87,18 @@
 .footer-link i {
   width: 20px;
   text-align: center;
+  margin-right: 8px;
 }
 
-/* CORRECCIÓN CRÍTICA: Información de contacto */
+/* Información de contacto - DESKTOP */
 .contact-info {
   font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrado horizontal */
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.5rem;
-  width: 100%;
-  max-width: 280px; /* Limitar ancho máximo para mejor legibilidad */
-}
-
-/* CORREGIDO: Centrar contenido de contacto */
-.contact-item > div {
-  text-align: center; /* Centrar texto */
-  flex: 1;
 }
 
 .contact-item i {
@@ -130,24 +121,22 @@
   line-height: 1.4;
 }
 
-/* Redes sociales */
+/* Redes sociales - DESKTOP */
 .social-links {
   display: flex;
-  justify-content: center;
 }
 
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  max-width: 280px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0.75rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -155,9 +144,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   border: 1px solid transparent;
-  flex-direction: column;
-  text-align: center;
-  min-height: 80px;
+  min-height: 60px;
 }
 
 .social-link:hover {
@@ -170,8 +157,9 @@
 
 .social-link i {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-right: 0.75rem;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .social-link span {
@@ -198,11 +186,11 @@
   margin: 2rem 0;
 }
 
-/* Links legales */
+/* Links legales - DESKTOP */
 .footer-legal-links {
   font-size: 0.85rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -219,7 +207,7 @@
   text-decoration: underline;
 }
 
-/* Botones */
+/* Botones - DESKTOP */
 .btn-outline-light {
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.8);
@@ -237,11 +225,9 @@
 }
 
 /* ============================================
-   RESPONSIVE DESIGN - CORRECCIONES CRÍTICAS
+   TABLET (768px - 992px)
    ============================================ */
-
-/* Tablet (768px - 992px) */
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 769px) {
   .footer-title::after {
     left: 0;
     transform: none;
@@ -249,24 +235,50 @@
   
   .social-grid {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 350px;
   }
   
-  .contact-item {
-    max-width: 100%;
+  .social-link {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5rem;
+    min-height: 80px;
+  }
+  
+  .social-link i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
   }
 }
 
-/* Mobile (menos de 768px) - CORRECCIONES PRINCIPALES */
+/* ============================================
+   MOBILE (menos de 768px) 
+   ============================================ */
 @media (max-width: 768px) {
   .footer-custom {
-    text-align: center !important;
+    text-align: center;
     padding: 40px 15px !important;
   }
 
-  /* CORREGIDO: Centrar títulos */
+  /* Logo y marca centrados */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto;
+  }
+
+  .brand-name,
+  .footer-description {
+    text-align: center;
+  }
+
+  /* Títulos centrados */
   .footer-title {
-    text-align: center !important;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -274,193 +286,181 @@
   }
 
   .footer-title::after {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  /* CORREGIDO: Centrar contacto completamente */
-  .contact-info {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  /* CORREGIDO: Reestructurar items de contacto */
-  .contact-item {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    margin-bottom: 1.5rem !important;
-    width: 100% !important;
-    max-width: 300px !important;
-  }
-
-  /* CORREGIDO: Íconos arriba del texto */
-  .contact-item i {
-    margin-right: 0 !important;
-    margin-bottom: 0.5rem !important;
-    font-size: 1.3rem !important;
-  }
-
-  .contact-item > div {
-    width: 100% !important;
-  }
-
-  /* CORREGIDO: Asegurar que el texto esté centrado */
-  .contact-item strong,
-  .contact-item .small {
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* CORREGIDO: Navegación centrada */
+  /* Navegación centrada */
   .nav.flex-column {
-    align-items: center !important;
+    align-items: center;
   }
 
   .footer-link {
-    justify-content: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
   }
 
-  /* CORREGIDO: Logo y marca centrados */
-  .footer-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+  .footer-link i {
+    margin-right: 8px;
   }
 
-  .footer-logo {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .brand-name,
-  .footer-description {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* CORREGIDO: Botón centrado */
-  .btn-outline-light {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* CORREGIDO: Redes sociales centradas */
-  .social-links {
-    justify-content: center !important;
-  }
-
-  .social-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    max-width: 300px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .social-link {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  /* CORREGIDO: Links legales centrados */
-  .footer-legal-links {
-    justify-content: center !important;
-    text-align: center !important;
-    margin-top: 1rem !important;
-  }
-
-  /* CORREGIDO: Copyright centrado */
-  .text-center.text-md-start,
-  .text-center.text-md-end {
-    text-align: center !important;
-    width: 100% !important;
-  }
-
-  .row.align-items-center {
-    flex-direction: column !important;
-    text-align: center !important;
-  }
-
-  .row.align-items-center .col-md-6 {
-    width: 100% !important;
-    margin-bottom: 1rem !important;
-  }
-}
-
-/* Small Mobile (menos de 576px) */
-@media (max-width: 576px) {
-  .footer-logo {
-    width: 100px !important;
-  }
-
-  .brand-name {
-    font-size: 1.3rem !important;
-  }
-
-  .footer-title {
-    font-size: 1rem !important;
-  }
-  
-  .contact-info .small {
-    font-size: 0.8rem !important;
-  }
-  
-  .footer-legal-links {
-    font-size: 0.75rem !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  
-  .social-link {
-    padding: 0.5rem !important;
-    min-height: 70px !important;
-  }
-  
-  .social-link span {
-    font-size: 0.75rem !important;
-  }
-
-  /* CORREGIDO: Grid de redes sociales más compacto */
-  .social-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.5rem !important;
-    max-width: 250px !important;
-  }
-}
-
-/* Muy pequeño (menos de 375px) */
-@media (max-width: 375px) {
-  .social-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 200px !important;
-  }
-  
-  .footer-logo {
-    width: 80px !important;
-  }
-
-  .brand-name {
-    font-size: 1.1rem !important;
+  /* Contacto centrado y reorganizado */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .contact-item {
-    max-width: 250px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .contact-item i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .contact-item strong,
+  .contact-item .small {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  /* Botón centrado */
+  .btn-outline-light {
+    margin: 0 auto;
+    display: flex;
+  }
+
+  /* Redes sociales centradas */
+  .social-links {
+    justify-content: center;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .social-link {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem;
+    min-height: 80px;
+  }
+
+  .social-link i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Links legales centrados */
+  .footer-legal-links {
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Copyright centrado */
+  .text-center.text-md-start,
+  .text-center.text-md-end {
+    text-align: center;
+    width: 100%;
+  }
+
+  .row.align-items-center {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .row.align-items-center .col-md-6 {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 
-/* Mejoras de accesibilidad */
+/* ============================================
+   SMALL MOBILE (menos de 576px)
+   ============================================ */
+@media (max-width: 576px) {
+  .footer-logo {
+    width: 100px;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+  }
+
+  .footer-title {
+    font-size: 1rem;
+  }
+  
+  .contact-info .small {
+    font-size: 0.8rem;
+  }
+  
+  .footer-legal-links {
+    font-size: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .social-link {
+    padding: 0.5rem;
+    min-height: 70px;
+  }
+  
+  .social-link span {
+    font-size: 0.75rem;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    max-width: 250px;
+  }
+}
+
+/* ============================================
+   VERY SMALL MOBILE (menos de 375px)
+   ============================================ */
+@media (max-width: 375px) {
+  .social-grid {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+  }
+  
+  .footer-logo {
+    width: 80px;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .contact-item {
+    max-width: 250px;
+  }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .footer-link,
   .social-link,
@@ -470,7 +470,7 @@
   }
 }
 
-/* Modo oscuro forzado para footer */
+/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .footer-custom {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
