@@ -38,6 +38,8 @@ const Packs = () => {
                 "Cámara inteligente",
                 "Sensor de movimiento",
                 "Iluminación automática",
+                "Vision nocturna",
+                "Multi plataforma",
             ],
         },
         {
