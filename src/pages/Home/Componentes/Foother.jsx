@@ -118,31 +118,31 @@ export const Footer = () => {
             <h5 className="footer-title mb-4">Contacto</h5>
             <div className="contact-info">
               <div className="contact-item mb-3">
-                <i className="bi bi-geo-alt text-danger me-3"></i>
+                <i className="bi bi-geo-alt text-orange me-3"></i>
                 <div>
                   <strong>Ubicación</strong>
-                  <p className="mb-0 small">Patagonia 695, Santiago del Estero, Argentina</p>
+                  <p className="mb-0 small">24 de septiembre 4881 oficina 18, Santiago del Estero, Argentina</p>
                 </div>
               </div>
               
               <div className="contact-item mb-3">
-                <i className="bi bi-telephone text-danger me-3"></i>
+                <i className="bi bi-telephone text-orange me-3"></i>
                 <div>
                   <strong>Teléfono</strong>
-                  <p className="mb-0 small">+54 9 385 417-8021</p>
+                  <p className="mb-0 small">+54 9 385 572-4629</p>
                 </div>
               </div>
               
               <div className="contact-item mb-3">
-                <i className="bi bi-envelope text-danger me-3"></i>
+                <i className="bi bi-envelope text-orange me-3"></i>
                 <div>
                   <strong>Email</strong>
-                  <p className="mb-0 small">info@smarthomesolutions.com</p>
+                  <p className="mb-0 small">smarthome@gmail.com </p>
                 </div>
               </div>
               
               <div className="contact-item">
-                <i className="bi bi-clock text-danger me-3"></i>
+                <i className="bi bi-clock text-orange me-3"></i>
                 <div>
                   <strong>Horarios</strong>
                   <p className="mb-0 small">Lun-Vie: 8:00 - 18:00</p>

@@ -89,7 +89,7 @@
   background: linear-gradient(45deg, var(--rojoClaroGradiente), var(--azulClaroGradiente));
   border: none;
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 81, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.3);
 }
 
 .service-btn:hover {

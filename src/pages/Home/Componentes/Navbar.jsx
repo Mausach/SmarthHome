@@ -107,7 +107,7 @@ function Navbarsh() {
             loading="lazy"
           />
           <h3 className="welcome-text text-shadow text-light">
-            Smart<span className="text-danger text-shadow">Home</span>
+            Smart<span className="text-orange text-shadow">Home</span>
           </h3>
         </Navbar.Brand>
 

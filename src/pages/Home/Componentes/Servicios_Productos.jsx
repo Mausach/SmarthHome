@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Servicios_Productos.css';
 
 
-import ilusSecurity from '../../../assets/cam-solita.webp';
-import ilusHome from '../../../assets/luz.webp';
+import ilusSecurity from '../../../assets/cam2_promo.png';
+import ilusHome from '../../../assets/luz2_promo .png';
 
 gsap.registerPlugin(ScrollTrigger);
 

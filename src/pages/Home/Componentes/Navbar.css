@@ -8,6 +8,11 @@
   border-bottom: 1px solid transparent;
 }
 
+/*texto para lavbar logo*/
+.text-orange{
+  color: #EB5B00;
+}
+
 /* Navbar cuando se hace scroll */
 .custom-navbar.scrolled {
   background: rgba(0, 0, 0, 0.9) !important;
@@ -59,7 +64,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(45deg, #444444, #df1024);
+  background: linear-gradient(45deg, #444444, #EB5B00);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -121,7 +126,7 @@
 }
 
 .nav-cta-button:hover {
-  background: linear-gradient(45deg, #b30000, #850000) !important;
+  background: linear-gradient(45deg, #b30000, #EB5B00) !important;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(239, 241, 243, 0.4);
   color: rgb(231, 226, 226) !important;

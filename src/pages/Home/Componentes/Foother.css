@@ -16,6 +16,10 @@
   background: linear-gradient(90deg, transparent, #f1f6fa, transparent);
 }
 
+.text-orange{
+  color: #EB5B00;
+}
+
 /* Logo y marca */
 .footer-logo {
   width: 120px;
@@ -62,7 +66,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: linear-gradient(45deg, #444444, #DA0037);
+  background: linear-gradient(45deg, #444444, #EB5B00);
   border-radius: 1px;
 }
 
