@@ -137,7 +137,7 @@ export const Footer = () => {
                 <i className="bi bi-envelope text-orange me-3"></i>
                 <div>
                   <strong>Email</strong>
-                  <p className="mb-0 small">smarthome@gmail.com </p>
+                  <p className="mb-0 small"> smarthome.santiagodelestero@gmail.com </p>
                 </div>
               </div>
               
