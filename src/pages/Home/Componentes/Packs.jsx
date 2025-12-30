@@ -7,7 +7,7 @@ import "./Packs.css"
 import portonImg from '../../../assets/porton3.png';
 import seguridadImg from '../../../assets/cam3.png';
 import comodidadImg from '../../../assets/ceradur2.png';
-import smartImg from '../../../assets/panel2.png';
+import smartImg from '../../../assets/artef.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
