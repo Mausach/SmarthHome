@@ -6,7 +6,8 @@ import './Servicios_Productos.css';
 
 
 import ilusSecurity from '../../../assets/cam2_promo.png';
-import ilusHome from '../../../assets/luz2_promo .png';
+import ilusHome from '../../../assets/luz2_promo .png'; 
+import ilusmot from '../../../assets/reparando.png'; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,20 +18,6 @@ const ServicesSection = () => {
   const servicesData = [
     {
       id: 1,
-      image: ilusSecurity,
-      title: "Seguridad Inteligente Completa",
-      description:
-        "Protegé tu hogar con tecnología profesional. Cámaras HD, sensores de movimiento, control de accesos y alertas instantáneas directamente a tu celular.",
-      features: [
-        "Cámaras HD con visión nocturna",
-        "Sensores de movimiento",
-        "Control de puertas y portones",
-        "Alertas al celular",
-        "Instalación profesional + garantía real"
-      ]
-    },
-    {
-      id: 2,
       image: ilusHome,
       title: "Automatización del Hogar",
       description:
@@ -41,6 +28,35 @@ const ServicesSection = () => {
         "Rutinas automáticas",
         "Control por voz (Alexa / Google)",
         "Ahorro de energía"
+      ]
+    },
+    {
+      id: 2,
+      image: ilusmot,
+      title: "Portones Automáticos y Automatización de Accesos",
+      description:
+        "Instalación, reparación y automatización de portones de garaje. Motores, controles remotos, sensores y sistemas seguros para mayor comodidad y protección.",
+      features: [
+        "Reparación de portones automáticos",
+        "Instalación de motores para garaje",
+        "Controles remotos y receptores",
+        "Sensores de seguridad y finales de carrera",
+        "Mantenimiento preventivo"
+      ]
+    }
+    ,
+    {
+      id: 3,
+      image: ilusSecurity,
+      title: "Seguridad Inteligente Completa",
+      description:
+        "Protegé tu hogar con tecnología profesional. Cámaras HD, sensores de movimiento, control de accesos y alertas instantáneas directamente a tu celular.",
+      features: [
+        "Cámaras HD con visión nocturna",
+        "Sensores de movimiento",
+        "Control de puertas y portones",
+        "Alertas al celular",
+        "Instalación profesional + garantía real"
       ]
     }
   ];
