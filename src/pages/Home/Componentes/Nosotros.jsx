@@ -53,8 +53,8 @@ const AboutSection = () => {
     },
     {
       id: 3,
-      number: '+'+'3',
-      label: ' +3 Años de Experiencia',
+      number: '+'+'5',
+      label: ' +5 Años de Experiencia',
       icon: 'bi-award'
     },
     {

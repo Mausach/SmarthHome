@@ -121,7 +121,7 @@ export const Footer = () => {
                 <i className="bi bi-geo-alt text-orange me-3"></i>
                 <div>
                   <strong>Ubicación</strong>
-                  <p className="mb-0 small">24 de septiembre 4881 oficina 18, Santiago del Estero, Argentina</p>
+                  <p className="mb-0 small">24 de septiembre 481 oficina 18, Santiago del Estero, Argentina</p>
                 </div>
               </div>
               
