@@ -25,7 +25,7 @@ const statsData = [
   },
   {
     id: 3,
-    number: 3,
+    number: 5,
     prefix: '+',
     label: 'Años de Experiencia',
     icon: 'bi-award'
